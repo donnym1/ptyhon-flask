@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Absensi Karyawan</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center;">Absensi Karyawan</h1>
+    <div class="form">
+        <form action="/" method="post">
+            <input type="text" name="content" id="content">
+            <input type="submit" value="Input" />
+        </form>
+    </div>
+    <p>Ket Input : Nama - Absensi&#9913;</p>
+    <p>&#9913;Masuk/Istirahat/Keluar</p>
+    {% if tasks|length < 1 %}
+    <h4 style="text-align: center;">Tidak ada Data</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th>Ket</th>
+            <th>Waktu</th>
+            <th>Aksi</th>
+        </tr>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.content }}</td>
+                <td>{{ task.date_created.date() }}</td>
+                <td>
+                    <a href="/delete/{{task.id}}">Delete</a>
+                    <br>
+                    <a href="/update/{{task.id}}">Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+
+{% endblock %}
