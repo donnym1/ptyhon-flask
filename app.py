@@ -1,10 +1,3 @@
-from distutils.log import debug
-from email.policy import default
-from msilib.schema import AppSearch
-import re
-from sqlite3 import SQLITE_ALTER_TABLE
-from this import s
-from urllib import request
 from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
